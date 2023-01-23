@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Login - Oauth2 Demo</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+</head>
+<body>
+    <form action="{{auth_code.post_url}}" method='post'>
+        <table>
+            <tr>
+                <td>Username</td> 
+                <td> <input type="text" name="username" placeholder="Username"></td>
+            </tr>
+            <tr>
+                <td>Password</td> 
+                <td> 
+                    <input type="password" name="password" placeholder="Password">
+                    <input type="hidden" name="response_type" value="{{auth_code.response_type}}" >
+                    <input type="hidden" name="client_id" value="{{auth_code.client_id}}" >
+                    <input type="hidden" name="redirect_uri" value="{{auth_code.redirect_uri}}" >
+                    <input type="hidden" name="state" value="{{auth_code.state}}" >
+                    <input type="hidden" name="scope" value="{{auth_code.scope}}" >
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                <input type="submit" name="login" value="Login">
+                </td>
+            </tr>
+        </table>
+    </form>
+    
+</body>
+</html>
