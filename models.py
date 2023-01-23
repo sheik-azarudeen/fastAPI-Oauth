@@ -50,8 +50,7 @@ UserRefreshToken_pydantic = pydantic_model_creator(User_refresh_tokens, name = '
 
 class Scopes(Model):
     '''
-    User's refresh token id saved here
-    To validate refresh token. Should use refresh token only one time
+    Scopes master table
     '''
     id: Optional[int] = fields.IntField(pk=True)
     scope = fields.CharField(100, unique=True)
