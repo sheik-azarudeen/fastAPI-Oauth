@@ -276,7 +276,7 @@ async def __authorizationCodeAuthentication(form_data):
         # If user give auth code after 10 minutes, should raise this exception
         daysDiff = (datetime.strptime(datetime.strftime(datetime.now(), '%Y-%m-%d %H:%M:%S'),'%Y-%m-%d %H:%M:%S') - datetime.strptime(datetime.strftime(auth_code.created_date, '%Y-%m-%d %H:%M:%S'),'%Y-%m-%d %H:%M:%S')).total_seconds() / 60.0
         if daysDiff > 10:
-            await User_auth_codes.filter(user_id = user.id, auth_code = form_data.code, scope = " ".join(form_data.scopes), validate_status = 0).update(validate_status= 1)
+            await User_auth_codes.filter(user_id = user.id, auth_code = form_data.code, validate_status = 0).update(validate_status= 1)
             details = [{"loc": 
                     [
                         "body",
